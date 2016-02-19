@@ -1,11 +1,22 @@
-*.class
-*.log
-.*
-
 !.gitignore
 !.travis.yml
 
-# sbt specific
+*~
+*.log
+*.bak
+*.tmp
+*.swp
+*.lock
+
+# JVM
+*.class
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Sbt
+.cache
+.history
+.lib
 dist/*
 target/
 lib_managed/
@@ -14,3 +25,28 @@ project/boot/
 project/plugins/project/
 project/*-shim.sbt
 
+# Packages
+*.jar
+*.war
+*.ear
+*.zip
+
+# IDEA IntelliJ
+*.ipr
+*.iws
+*.iml
+.idea
+.idea_modules
+out
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# KDE directory preferences
+.directory
+
+# OS X
+.DS_Store
+.Trashes
