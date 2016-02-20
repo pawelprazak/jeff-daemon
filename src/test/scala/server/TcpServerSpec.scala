@@ -5,7 +5,7 @@ import java.net.InetSocketAddress
 import akka.actor.ActorSystem
 import akka.io.Tcp.{Connected, Register}
 import akka.testkit.{ImplicitSender, TestKit}
-import handler.EchoHandlerProps
+import handler.PrintHandlerProps
 import org.scalatest.{BeforeAndAfterAll, MustMatchers, WordSpecLike}
 
 class TcpServerSpec(_system: ActorSystem)
@@ -24,7 +24,7 @@ class TcpServerSpec(_system: ActorSystem)
   "A TcpServer actor" must {
 
     "register a handler when a client connected" in {
-      val server = system.actorOf(TcpServer.props(EchoHandlerProps), "ServerActor")
+      val server = system.actorOf(TcpServer.props(PrintHandlerProps), "ServerActor")
       server ! Connected(new InetSocketAddress(5555),
         new InetSocketAddress(9000))
       expectMsgPF() { case _: Register => }

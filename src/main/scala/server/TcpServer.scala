@@ -23,6 +23,7 @@ class TcpServer(handlerProps: HandlerProps) extends Server {
     case Tcp.Connected(remote, local) =>
       val handler = context.actorOf(handlerProps.props(sender))
       sender ! Tcp.Register(handler)
+      println(s"Connected to ${remote.getHostString}:${remote.getPort}" )
   }
 
 }
